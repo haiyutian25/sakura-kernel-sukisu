@@ -58,6 +58,13 @@ jobs:
       with:
         fetch-depth: 1
 
+    - name: Fix script permissions
+      run: |
+        # Windows git doesn't preserve Unix execute permissions
+        chmod +x scripts/config 2>/dev/null || true
+        find scripts/ -type f \( -name "*.sh" -o -name "*.pl" -o -name "*.py" \) -exec chmod +x {} \; 2>/dev/null || true
+        chmod +x scripts/mkcompile_h scripts/link-vmlinux.sh scripts/recordmcount scripts/sortextable 2>/dev/null || true
+
     - name: Free disk space
       run: |
         sudo apt-get remove -y '^dotnet-.*' '^llvm-.*' 'php.*' azure-cli google-cloud-cli \
