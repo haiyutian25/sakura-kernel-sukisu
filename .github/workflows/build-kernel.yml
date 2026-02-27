@@ -1,3 +1,4 @@
+# Sakura Kernel CI - SukiSU Ultra (non-GKI 3.18 arm64)
 name: Build Sakura Kernel with SukiSU Ultra
 
 permissions:
