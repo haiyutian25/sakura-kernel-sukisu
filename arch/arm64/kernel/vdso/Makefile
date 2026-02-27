@@ -8,7 +8,7 @@
 obj-vdso := gettimeofday.o note.o sigreturn.o
 
 # Build rules
-targets := $(obj-vdso) vdso.so vdso.so.dbg
+targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds
 obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
 
 ccflags-y := -shared -fno-common -fno-builtin
